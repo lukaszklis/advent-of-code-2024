@@ -13,7 +13,12 @@ export const normalizeInput = (input: string): [number[], number[]] => {
   return [left.sort((a, b) => a - b), right.sort((a, b) => a - b)]
 }
 
-export const getSortedPairs = (left: number[], right: number[]): [number[], number[]] => [
+export const sortPairs = (left: number[], right: number[]): [number[], number[]] => [
   left.sort((a, b) => a - b),
   right.sort((a, b) => a - b),
 ]
+
+export const sum = (arr: number[]): number => arr.reduce((acc, curr) => acc + curr, 0)
+
+export const count = (arr: number[], value: number): number =>
+  arr.filter(item => item === value).length

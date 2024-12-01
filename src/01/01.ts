@@ -1,24 +1,13 @@
-import { getSortedPairs, normalizeInput } from './utils'
+import { count, normalizeInput, sortPairs, sum } from './utils'
 
 export const getDistances = (input: string): number => {
-  const [left, right] = normalizeInput(input)
-  const [sortedLeft, sortedRight] = getSortedPairs(left, right)
+  const [left, right] = sortPairs(...normalizeInput(input))
 
-  const distances = sortedLeft.map((leftCoordinate, index) =>
-    Math.abs(leftCoordinate - sortedRight[index])
-  )
-
-  return distances.reduce((acc, curr) => acc + curr, 0)
+  return sum(left.map((coordinate, index) => Math.abs(coordinate - right[index])))
 }
 
 export const getSimilarityScore = (input: string): number => {
   const [left, right] = normalizeInput(input)
 
-  const similarityScore = left.map(leftCoordinate => {
-    const count = right.filter(rightCoordinate => rightCoordinate === leftCoordinate).length
-
-    return leftCoordinate * count
-  })
-
-  return similarityScore.reduce((acc, curr) => acc + curr, 0)
+  return sum(left.map(coordinate => coordinate * count(right, coordinate)))
 }

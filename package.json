@@ -1,0 +1,18 @@
+{
+  "name": "aoc-2024",
+  "private": true,
+  "scripts": {
+    "task": "ts-node --",
+    "format": "prettier --write .",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.4.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.6"
+  }
+}
